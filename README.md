@@ -22,9 +22,8 @@
 ## Usage
 
 1. Start the application:
-   ```bash
+   ```bash 
    npm start
    ```
-2. Open a web browser and navigate to `http://localhost:3000`.
-3. Enter your username and join the chat room.
-4. Start chatting with other users in real-time.
+2. Enter your username and join the chat room.
+3. Start chatting with other users in real-time.
