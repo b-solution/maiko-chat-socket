@@ -1,8 +1,9 @@
 const { default: axios } = require("axios");
-
-const io = require("socket.io")(3002, {
+require("dotenv").config();
+const port = process.env.SCOKET_PORT;
+const io = require("socket.io")(port, {
   cors: {
-    origin: ["http://localhost:3000"],
+    origin: [process.env.FRONTEND_URL],
   },
 });
 
@@ -20,9 +21,7 @@ io.on("connection", (socket) => {
     console.log("prompt: ", change);
     io.emit("p-change", change);
   });
-  //   socket.on("add-conversation", async (conversation) => {
-  //     const { data } = await axios.post("http://localhost:3000/api/add-conversation", conversation);
-  //     //socket.emit("conversation", data);
-  //     console.log(data);
-  //   });
+  socket.on("folder-change", (change) => {
+    io.emit("f-change", change);
+  });
 });
